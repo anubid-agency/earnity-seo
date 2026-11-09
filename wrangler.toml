@@ -1,0 +1,25 @@
+name = "earnity-seo"
+main = "index.js"
+compatibility_date = "2026-11-01"
+
+# --- D1 (read-only access) ---------------------------------------------------
+[[d1_databases]]
+binding = "DB"
+database_name = "earnityug-db-1"
+database_id = "9463caa5-a3df-47d2-a44f-a3cf80288dc0"          # `wrangler d1 list` or dashboard → D1
+
+# --- Environment variables ---------------------------------------------------
+[vars]
+SITE_ORIGIN      = "https://earnityug.com"
+CLOUD_NAME       = "ybj9ai56"
+DEFAULT_OG_IMAGE = "https://earnityug.com/og-image.jpg"
+
+# --- Routes ------------------------------------------------------------------
+# `wrangler deploy` creates these automatically. If you prefer the dashboard,
+# remove this block and add the routes manually (see README).
+routes = [
+  { pattern = "earnityug.com/p/*",            zone_name = "earnityug.com" },
+  { pattern = "earnityug.com/s/*",            zone_name = "earnityug.com" },
+  { pattern = "earnityug.com/sitemap.xml",    zone_name = "earnityug.com" },
+  { pattern = "earnityug.com/sitemap-*.xml",  zone_name = "earnityug.com" },
+]
